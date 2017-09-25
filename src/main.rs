@@ -20,8 +20,9 @@ fn main() {
     let pif = load_rom(pif_file_name);
     let rom = load_rom(rom_file_name);
 
-    let cpu = Cpu::new();
-    println!("Cpu stuff: {:?}", cpu);
+    let mut cpu = Cpu::new();
+    cpu.power_on_reset();
+    println!("Cpu after reset: {:#?}", cpu);
 }
 
 fn load_rom<P: AsRef<Path>>(path: P) -> Vec<u8> {
